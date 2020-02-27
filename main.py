@@ -9,3 +9,4 @@ edges = []
 transform = new_matrix()
 
 parse_file( 'script', edges, transform, screen, color )
+print("\nImages saved as pic1.png, ..., pic5.png\n")

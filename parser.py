@@ -14,7 +14,7 @@ The file follows the following format:
          scale: create a scale matrix,
                 then multiply the transform matrix by the scale matrix -
                 takes 3 arguments (sx, sy, sz)
-         translate: create a translation matrix,
+         move: create a translation matrix,
                     then multiply the transform matrix by the translation matrix -
                     takes 3 arguments (tx, ty, tz)
          rotate: create a rotation matrix,
@@ -54,17 +54,17 @@ def parse_file( fname, points, transform, screen, color ):
             abc = lines[ind].split(" ")
             abc = [int(x) for x in abc]
             new = make_scale(abc[0], abc[1], abc[2])
-            print("scale")
-            print_matrix(new)
+            # print("scale")
+            # print_matrix(new)
             matrix_mult(new, transform)
 
-        if lines[ind] == "translate":
+        if lines[ind] == "move":
             ind = ind + 1
             abc = lines[ind].split(" ")
             abc = [int(x) for x in abc]
             new = make_translate(abc[0], abc[1], abc[2])
-            print("translate")
-            print_matrix(new)
+            # print("translate")
+            # print_matrix(new)
             matrix_mult(new, transform)
 
         if lines[ind] == "rotate":
@@ -77,15 +77,15 @@ def parse_file( fname, points, transform, screen, color ):
                 new = make_rotY(theta)
             if abc[0] == "z":
                 new = make_rotZ(theta)
-            print("rotate")
-            print_matrix(new)
+            # print("rotate")
+            # print_matrix(new)
             matrix_mult(new, transform)
 
         if lines[ind] == "apply":
             matrix_mult(transform, points)
 
         if lines[ind] == "display":
-            print_matrix (points)
+            # print_matrix (points)
             clear_screen(screen)
             draw_lines(points, screen, color)
             # display(screen)
