@@ -71,6 +71,7 @@ def parse_file( fname, points, transform, screen, color ):
             ind = ind + 1
             abc = lines[ind].split(" ")
             theta = int(abc[1])
+            # print(theta)
             if abc[0] == "x":
                 new = make_rotX(theta)
             if abc[0] == "y":
